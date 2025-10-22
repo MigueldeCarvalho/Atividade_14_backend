@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Especialidades Médicas</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        select { padding: 8px; }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="especialidade">Escolha uma especialidade:</label>
+        <select name="especialidade" id="especialidade">
+            <?php while ($row = $result->fetch_assoc()) {
+                echo "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['especialidade']) . "</option>";
+            } ?>
+        </select>
+    </form>
+</body>
+</html>

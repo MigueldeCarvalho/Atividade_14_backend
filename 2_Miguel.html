@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Filmes</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input, button { padding: 8px; margin: 5px 0; }
+        #erro { color: red; display: none; }
+    </style>
+</head>
+<body>
+    <form method="POST" onsubmit="return validarFilme()">
+        <input type="text" name="titulo" id="titulo" placeholder="Título do filme">
+        <input type="text" name="diretor" id="diretor" placeholder="Diretor">
+        <button type="submit">Cadastrar</button>
+        <div id="erro">*Preencha todos os campos</div>
+    </form>
+
+    <script>
+        function validarFilme() {
+            const titulo = document.getElementById("titulo").value.trim();
+            const diretor = document.getElementById("diretor").value.trim();
+            const erro = document.getElementById("erro");
+
+            if (titulo === "" || diretor === "") {
+                erro.style.display = "block";
+                return false;
+            }
+            erro.style.display = "none";
+            return true;
+        }
+    </script>
+</body>
+</html>

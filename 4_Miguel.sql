@@ -1,0 +1,4 @@
+CREATE TABLE palavras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    palavra VARCHAR(255) NOT NULL
+);

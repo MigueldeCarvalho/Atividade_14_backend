@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserir Palavra</title>
+    <style>
+        .erro {
+            color: red;
+            border: 1px solid red;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #mensagem {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicionar Palavra</h1>
+
+    <form id="formPalavra" method="POST" action="salvar.php">
+        <input type="text" name="palavra" id="palavra" placeholder="Digite uma palavra">
+        <button type="submit">Enviar</button>
+        <div id="mensagem" class="hidden"></div>
+    </form>
+
+    <script>
+        document.getElementById('formPalavra').addEventListener('submit', function(e) {
+            const palavra = document.getElementById('palavra').value.trim();
+            const mensagem = document.getElementById('mensagem');
+
+            if (palavra === '') {
+                e.preventDefault();
+                mensagem.textContent = '*Campo obrigatório';
+                mensagem.classList.remove('hidden');
+                mensagem.classList.add('erro');
+            } else {
+                mensagem.classList.add('hidden');
+            }
+        });
+    </script>
+</body>

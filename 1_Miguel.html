@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Boas-vindas</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, button { padding: 8px; margin: 5px 0; }
+        h1 { color: green; }
+    </style>
+</head>
+<body>
+    <form method="POST" onsubmit="return validarCampo()">
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+        <button type="submit">Enviar</button>
+        <div id="mensagem" style="color:red; display:none;">*Campo obrigatório</div>
+    </form>
+  
+
+    <script>
+        function validarCampo() {
+            const nome = document.getElementById("nome").value.trim();
+            const msg = document.getElementById("mensagem");
+            if (nome === "") {
+                msg.style.display = "block";
+                return false;
+            }
+            msg.style.display = "none";
+            return true;
+        }
+    </script>
+</body>
+</html>
